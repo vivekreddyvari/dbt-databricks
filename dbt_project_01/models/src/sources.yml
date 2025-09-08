@@ -1,0 +1,10 @@
+version: 0.1
+
+sources: 
+  - name: dev_dbt_bronze
+    catalog: dev  # use catalog for databricks
+    schema: dev_dbt_bronze # adjust to exact schema where your bronze tables.
+    tables: 
+      - name: jaffle_shop_customers
+      - name: jaffle_shop_orders
+      - name: stripe_payments
