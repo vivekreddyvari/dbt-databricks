@@ -1,0 +1,15 @@
+# This is profiles setup .yml for databricks 
+
+dbt_project_01:
+  outputs:
+    dev:
+      catalog: dev
+      connect_retries: 2
+      connect_timeout: 10
+      host: dbc-44896f8b-49e4.cloud.databricks.com
+      schema: dev_dbt_bronze
+      threads: 1
+      token: dapi3ad44301e63c1dca7ab94e8079845521
+      type: databricks
+      http_path: /sql/1.0/warehouses/0ba8e724d379b99e
+  target: dev
