@@ -29,8 +29,25 @@ clean-targets:         # directories to be removed by `dbt clean`
 # In this example config, we tell dbt to build all models in the example/
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
+
+# model-paths: ["models"]
+
 models:
   dbt_project_01:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    staging:
+      +catalog: dev
+      +schema: dev_dbt_bronze
+      +materialized: table
+    transformations:
+      +catalog: dev
+      +schema: dev_dbt_silver
+      +materialized: table # or incrementable table/delta 
+      # +schema: dev_dbt_silver
+
+flags: 
+  use_materialization_v2: True
+
+#    silver:
+#      customers:
+#        +schema: dev_dbt_silver
+
